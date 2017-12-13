@@ -1,7 +1,7 @@
 #
 # Scala and sbt Dockerfile
 #
-# https://github.com/hseeberger/scala-sbt
+# https://github.com/humansit/scala-sbt
 #
 
 # Pull base image
@@ -23,12 +23,27 @@ RUN \
 
 # Install sbt
 RUN \
+  echo "Installing SBT" \
   curl -L -o sbt-$SBT_VERSION.deb https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
   dpkg -i sbt-$SBT_VERSION.deb && \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
   apt-get install sbt && \
   sbt sbtVersion
+
+RUN \
+  echo "Installing Build tools" \
+  apt-get update && \
+  apt-get install rpm && \
+  apt-get install git && \
+  apt-get install python
+
+
+RUN \
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+  python get-pip.py
+
+RUN pip install awscli
 
 # Define working directory
 WORKDIR /root

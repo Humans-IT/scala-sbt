@@ -11,20 +11,20 @@ This repository contains **Dockerfile** of [Scala](http://www.scala-lang.org) an
 ## Installation ##
 
 1. Install [Docker](https://www.docker.com)
-2. Pull [automated build](https://registry.hub.docker.com/u/hseeberger/scala-sbt) from public [Docker Hub Registry](https://registry.hub.docker.com):
+2. Pull [automated build](https://registry.hub.docker.com/u/humansit/scala-sbt) from public [Docker Hub Registry](https://registry.hub.docker.com):
 ```
-docker pull hseeberger/scala-sbt
+docker pull humansit/scala-sbt
 ```
 Alternatively, you can build an image from Dockerfile:
 ```
-docker build -t hseeberger/scala-sbt github.com/hseeberger/scala-sbt
+docker build -t humansit/scala-sbt github.com/hseeberger/scala-sbt
 ```
 
 
 ## Usage ##
 
 ```
-docker run -it --rm hseeberger/scala-sbt
+docker run -it --rm humansit/scala-sbt
 ```
 
 
@@ -32,6 +32,9 @@ docker run -it --rm hseeberger/scala-sbt
 
 Contributions via GitHub pull requests are gladly accepted from their original author. Along with any pull requests, please state that the contribution is your original work and that you license the work to the project under the project's open source license. Whether or not you state this explicitly, by submitting any copyrighted material via pull request, email, or other means you agree to license the material under the project's open source license and warrant that you have the legal authority to do so.
 
+## Credits ##
+
+This is a fork from https://github.com/hseeberger/scala-sbt
 
 ## License ##
 
