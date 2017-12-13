@@ -28,22 +28,33 @@ RUN \
   dpkg -i sbt-$SBT_VERSION.deb && \
   rm sbt-$SBT_VERSION.deb && \
   apt-get update && \
-  apt-get install sbt && \
+  apt-get install -y sbt && \
   sbt sbtVersion
 
 RUN \
-  echo "Installing Build tools" && \
+  echo "Installing RPM Build tools" && \
   apt-get update && \
-  apt-get install rpm && \
-  apt-get install git && \
-  apt-get install python
+  apt-get install -y rpm
+
+RUN \
+  echo "Installing git" && \
+  apt-get update && \
+  apt-get install -y git
+
+RUN \
+  echo "Installing python" && \
+  apt-get update && \
+  apt-get install -y python
 
 
 RUN \
+  echo "Installing pip" && \
   curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
   python get-pip.py
 
-RUN pip install awscli
+RUN \
+  echo "Installing awscli" && \
+  pip install awscli
 
 # Define working directory
 WORKDIR /root
