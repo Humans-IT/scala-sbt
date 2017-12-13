@@ -23,7 +23,7 @@ RUN \
 
 # Install sbt
 RUN \
-  echo "Installing SBT" \
+  echo "Installing SBT" && \
   curl -L -o sbt-$SBT_VERSION.deb https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
   dpkg -i sbt-$SBT_VERSION.deb && \
   rm sbt-$SBT_VERSION.deb && \
@@ -32,7 +32,7 @@ RUN \
   sbt sbtVersion
 
 RUN \
-  echo "Installing Build tools" \
+  echo "Installing Build tools" && \
   apt-get update && \
   apt-get install rpm && \
   apt-get install git && \
