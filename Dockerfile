@@ -5,14 +5,18 @@
 #
 
 # Pull base image
-FROM openjdk:8u151
+FROM findepi/graalvm
 
 # Env variables
-ENV SCALA_VERSION 2.12.4
-ENV SBT_VERSION 1.0.2
+ENV SCALA_VERSION 2.12.7
+ENV SBT_VERSION 1.0.4
 
 # Scala expects this file
-RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
+#RUN touch /usr/lib/jvm/java-8-openjdk-amd64/release
+RUN \
+  echo "Installing CURL" && \
+  apt-get update && \
+  apt-get install -y curl
 
 # Install Scala
 ## Piping curl directly in tar

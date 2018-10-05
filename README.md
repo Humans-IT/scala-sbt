@@ -17,7 +17,7 @@ docker pull humansit/scala-sbt
 ```
 Alternatively, you can build an image from Dockerfile:
 ```
-docker build -t humansit/scala-sbt github.com/hseeberger/scala-sbt
+docker build -t humansit/scala-sbt github.com/humansit/scala-sbt
 ```
 
 
